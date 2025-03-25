@@ -1,7 +1,7 @@
 pipeline {
   agent any
     tools{
-      maven 'cd/opt'
+      maven 'mv'
           }
    stages {
     stage('Git checkout') {

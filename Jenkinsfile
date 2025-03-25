@@ -21,7 +21,7 @@ pipeline {
      stage('Docker Image Creation') {
       steps {
            echo 'This is for Docker image build'
-           sh 'docker build -t balunideepak/insureme:latest .'
+           sh 'docker build -t akj200489/insureme:latest .'
             }
           }
      }

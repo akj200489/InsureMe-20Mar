@@ -13,12 +13,6 @@ pipeline {
            sh 'mvn package'
             }
           }
-     stage('Test Results') {
-      steps {
-           echo 'This is for generating Test Results'
-           publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, icon: '', keepAll: false, reportDir: '/var/lib/jenkins/workspace/insuranceproject/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-            }
-          }
      stage('Docker Image Creation') {
       steps {
            echo 'This is for Docker image build'

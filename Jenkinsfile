@@ -7,7 +7,7 @@ pipeline {
     stage('Git checkout') {
       steps {
            echo 'This is for cloning the gitrepo'
-           git branch: 'main', url: 'https://github.com/Balunideepak/InsureMe-20Mar.git'
+           git branch: 'main', url: 'https://github.com/akj200489/InsureMe-20Mar.git'
             }
           }
      stage('Maven Package') {
@@ -33,13 +33,13 @@ pipeline {
              withCredentials([usernamePassword(credentialsId: 'dockeruser', passwordVariable: 'password', usernameVariable: 'username')]) {
           // withCredentials([usernameColonPassword(credentialsId: 'docker-id-user', variable: 'docker-all')]) {
           // withCredentials([string(credentialsId: 'dockercode', variable: 'dockervarcode')]) {
-           sh 'docker login -u balunideepak -p ${password}'
+           sh 'docker login -u akj200489 -p ${password}'
                          }
                    }
                }
      stage('Push the Docker image') {
       steps {
-        sh 'docker push balunideepak/insureme:latest'
+        sh 'docker push akj200489/insureme:latest'
                                 }
             }
       stage('Ansible Playbook') {

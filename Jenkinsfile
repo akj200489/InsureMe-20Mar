@@ -37,6 +37,12 @@ pipeline {
       steps {
         sh 'docker push akj200489/insureme:latest'
                                 }
-            }
+      stage('Ansible Playbook') {
+      steps {
+        ansiblePlaybook credentialsId: 'sshkey', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy.yml', vaultTmpPath: ''
+                                }
+                    }  
+              }
+     
      }
 }
